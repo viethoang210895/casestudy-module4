@@ -1,0 +1,17 @@
+.listPage{
+    padding:10px;
+    text-align: center;
+    list-style: none;
+}
+.listPage li{
+    background-color: rgb(255, 255, 255);
+    padding:7px 14px 7px 14px;
+    display: inline-block;
+    margin:0 10px;
+    cursor: pointer;
+    color: #66a973;
+}
+.listPage .active{
+    background-color: #66a973;
+    color:#fff;
+}

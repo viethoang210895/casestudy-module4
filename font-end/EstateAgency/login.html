@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/login.css">
+  <script src="js/login.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Title</title>
+</head>
+<body>
+<br>
+<br>
+<div class="cont">
+  <div class="form sign-in">
+    <h2>Welcome</h2>
+    <label>
+      <span>User Name</span>
+      <input type="text" id="username" />
+    </label>
+
+    <label>
+      <span>Password</span>
+      <input type="password" id="password" />
+    </label>
+    <p class="forgot-pass">Forgot password?</p>
+    <button type="button" onclick="login()" class="submit">Sign In</button>
+
+  </div>
+  <div class="sub-cont">
+    <div class="img">
+      <div class="img__text m--up">
+
+        <h3>Don't have an account? Please Sign up!</h3>
+      </div>
+      <div class="img__text m--in">
+
+        <h3>If you already  an account, just sign in.</h3>
+      </div>
+      <div class="img__btn">
+        <span class="m--up">Sign Up</span>
+        <span id="clickLogIn" class="m--in">Sign In</span>
+      </div>
+    </div>
+    <div class="form sign-up">
+
+      <h2>Create your Account</h2>
+      <label>
+        <input type="text" id="name_signup" placeholder="Name" />
+        <span id="regex-name-signup" hidden style="color: red">*<span style="color: red;font-size: 10px" >Name required</span></span>
+      </label>
+      <label>
+        <input type="text" id="username_signup" placeholder="User Name"/>
+        <span id="regex-username-signup" hidden style="color: red">*<span style="color: red;font-size: 10px" >Username required</span></span>
+      </label>
+
+      <label>
+
+        <input type="email" id="email_signup" placeholder="Email"/>
+        <span id="regex-email-signup" hidden style="color: red">*<span style="color: red;font-size: 10px" >Email is not vaild</span></span>
+      </label>
+      <label>
+        <input type="password" id="password_signup" placeholder="Password"/>
+        <span id="regex-password-signup" hidden style="color: red">*<span style="color: red;font-size: 10px" >Password 6-8 characters</span></span>
+      </label>
+
+      <label>
+        <div class="select">
+          <select  id="role_signup">
+            <option value="3" selected >You Are....</option>
+            <option value="1">Host</option>
+            <option value="2">Guest</option>
+          </select>
+        </div>
+        <span id="regex-role-signup" hidden style="color: red">*<span style="color: red;font-size: 10px" >You have not selected a role</span></span>
+
+      </label>
+      <button type="submit" class="submit" onclick="signUp()" >Sign Up</button>
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+<script>
+  document.querySelector('.img__btn').addEventListener('click', function() {
+    document.querySelector('.cont').classList.toggle('s--signup');
+  });
+</script>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EstateAgency</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link rel="stylesheet" href="css/pagination.css">
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <script src="js/login.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+      Theme Name: EstateAgency
+      Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+      Author: BootstrapMade.com
+      License: https://bootstrapmade.com/license/
+    ======================================================= -->
+</head>
+
+<body onload="getHouse()">
+
+<div class="click-closed"></div>
+<!--/ Form Search Star /-->
+<div class="box-collapse">
+    <div class="title-box-d">
+        <h3 class="title-d">Search Property</h3>
+    </div>
+    <span class="close-box-collapse right-boxed ion-ios-close"></span>
+    <div class="box-collapse-wrap form">
+        <form class="form-a">
+            <div class="row">
+                <div class="col-md-12 mb-2">
+                    <div class="form-group">
+                        <label for="Type">Keyword</label>
+                        <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="Type">Type</label>
+                        <select class="form-control form-control-lg form-control-a" id="Type">
+                            <option>All Type</option>
+                            <option>For Rent</option>
+                            <option>For Sale</option>
+                            <option>Open House</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <select class="form-control form-control-lg form-control-a" id="city">
+                            <option>All City</option>
+                            <option>Alabama</option>
+                            <option>Arizona</option>
+                            <option>California</option>
+                            <option>Colorado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="bedrooms">Bedrooms</label>
+                        <select class="form-control form-control-lg form-control-a" id="bedrooms">
+                            <option>Any</option>
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="garages">Garages</label>
+                        <select class="form-control form-control-lg form-control-a" id="garages">
+                            <option>Any</option>
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                            <option>04</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="bathrooms">Bathrooms</label>
+                        <select class="form-control form-control-lg form-control-a" id="bathrooms">
+                            <option>Any</option>
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="price">Min Price</label>
+                        <select class="form-control form-control-lg form-control-a" id="price">
+                            <option>Unlimite</option>
+                            <option>$50,000</option>
+                            <option>$100,000</option>
+                            <option>$150,000</option>
+                            <option>$200,000</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-b">Search Property</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--/ Form Search End /-->
+
+<!--/ Nav Star /-->
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+                aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
+        <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none"
+                data-toggle="collapse"
+                data-target="#navbarTogglerDemo01" aria-expanded="false">
+            <span class="fa fa-search" aria-hidden="true"></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="property-grid.html">Property</a>
+                </li>
+
+                <li class="nav-item dropdown notiUser">
+                    <a style="color: black" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" id="nfDropdown">
+                        Notifications <i id="icon-noti" class="fa fa-bell" style="font-size:16px;color:#66a973"><sup hidden style="background-color: red;font-weight: bold;font-size: 8px;padding: 3px 5px 3px 5px;border-radius:50%;color: white;margin-left: -10px;margin-top: 10px" id="sub-noti"></sup></i>
+                    </a>
+                    <div   class="dropdown-menu notification-div" aria-labelledby="navbarDropdown">
+                            <span style="padding: 10px"> 0 Notification</span>
+                    </div>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a style="color: #319849" class="nav-link dropdown-toggle" href="#" id="UserDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item setProfile" href="agent-single.html">Profile</a>
+                        <a class="dropdown-item" href="login.html">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<!--/ Nav End /-->
+<!--      modal change pass-->
+
+<!--/ Intro Single star /-->
+<section class="intro-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-8">
+                <div class="title-single-box">
+                    <h1 class="title-single" id="title-name">304 Blaster Up</h1>
+                    <span id="title-address" class="color-text-a">Chicago, IL 606543</span>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 col-lg-4">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="property-grid.html">Properties</a>
+                        </li>
+                        <li id="title-name2" class="breadcrumb-item active" aria-current="page">
+                            304 Blaster Up
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--/ Intro Single End /-->
+<center>
+<div  class="modal fade modalAddImg" id="modalAddImg" tabindex="-1"
+     aria-labelledby="exampleModalLabel">
+    <div style="display: flex;align-items: center"  class="modal-dialog">
+        <div class="modal-content" style="width: 700px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalEditTotal">Add Image</h5>
+            </div>
+            <div class="modal-body">
+                <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+                <div class="file-upload">
+                    <button class="file-upload-btn" type="button" onclick="createImgHouse()">Add Image</button>
+
+                    <div  class="image-upload-wrap">
+                        <input  id="inputGroupFile01" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                        <div class="drag-text">
+                            <h3>Drag and drop a file or select add Image</h3>
+                        </div>
+                    </div>
+                    <div class="file-upload-content">
+                        <img class="file-upload-image" src="#" alt="your image" />
+                        <div class="image-title-wrap">
+                            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="demo" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Close
+                </button>
+                <!--                <button type="button" class="btn btn-success" id="btn-edit"-->
+                <!--                        onclick="createImgHouse()">Submit-->
+                <!--                </button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+</center>
+
+
+
+
+
+
+<!--/ Property Single Star /-->
+<section class="property-single nav-arrow-b">
+
+    <div class="container">
+        <button class="identify" data-bs-toggle="modal" data-bs-target="#modalAddImg" data-bs-whatever="@mdo"
+                style="background-color: #66a973;color:white;border: none; outline: none; margin: 5px 0px 30px 0px;padding: 7px" type="button"
+                onclick="" class="btn-success">Add Image
+        </button>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div  class="personalImgHouse">
+                    <div style="width: 800px; height: 600px" id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div  class="carousel-item active">
+                                <img width="1325px" src="img/default.png" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row justify-content-between">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="property-price d-flex justify-content-center foo">
+                            <div class="card-header-c d-flex">
+                                <div class="card-box-ico">
+                                    <span class="ion-money">$</span>
+                                </div>
+                                <div class="card-title-c align-self-center">
+                                    <h5 id="title-price" class="title-c">15000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="property-summary">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="title-box-d section-t4">
+                                        <h3 class="title-d">Quick Summary</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="summary-list">
+                                <div class="title-box-d">
+                                    <h3 style="color: #3c7046" id="title-rate" class="w-title-a">Rating: <span style="font-size: 20px" id="avgRate"></span> </h3>
+                                </div>
+                                <ul class="list">
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Property ID:</strong>
+                                        <span id="title-id">1134</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Location:</strong>
+                                        <span id="title-address2">Chicago, IL 606543</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Property Type:</strong>
+                                        <span>House</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Status:</strong>
+                                        <span>Sale</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Description:</strong>
+                                        <span id="title-description">So Beautiful</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-lg-7 section-md-t3">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="title-box-d">
+                                    <h3 class="title-d">Property Description</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="property-description">
+                            <p class="description color-text-a">
+                                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                                Donec velit
+                                neque, auctor sit amet
+                                aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.
+                                Curabitur aliquet quam id dui posuere blandit. Mauris blandit aliquet elit, eget
+                                tincidunt
+                                nibh pulvinar quam id dui posuere blandit.
+                            </p>
+                            <p class="description color-text-a no-margin">
+                                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo
+                                eget
+                                malesuada. Quisque velit nisi,
+                                pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
+                            </p>
+                        </div>
+                        <div class="row section-t3">
+                            <div class="col-sm-12">
+                                <div class="title-box-d">
+                                    <h3 class="title-d">Amenities</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="amenities-list color-text-a">
+                            <ul class="list-a no-margin">
+                                <li>Balcony</li>
+                                <li>Outdoor Kitchen</li>
+                                <li>Cable Tv</li>
+                                <li>Deck</li>
+                                <li>Tennis Courts</li>
+                                <li>Internet</li>
+                                <li>Parking</li>
+                                <li>Sun Room</li>
+                                <li>Concrete Flooring</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="row section-t3">
+                    <div class="col-sm-12">
+                        <div class="title-box-d">
+                            <h3 class="title-d">Contact Agent</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <img id="img-agent" src="img/agent-4.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="property-agent">
+                            <h4 id="title-agent">Anabella Geller</h4>
+                            <p class="color-text-a">
+                                Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum
+                                sed sit amet
+                                dui. Quisque velit nisi,
+                                pretium ut lacinia in, elementum id enim.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between">
+                                    <strong>Phone:</strong>
+                                    <span id="title-phone" class="color-text-a">(222) 4568932</span>
+                                </li>
+
+                                <li class="d-flex justify-content-between">
+                                    <strong>Email:</strong>
+                                    <span id="title-email" class="color-text-a">annabella@example.com</span>
+                                </li>
+
+                            </ul>
+                            <div class="socials-a">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="#">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#">
+                                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#">
+                                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="#">
+                                            <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="margin-top: 30px" class="row section-t3 identify">
+                    <div class="col-sm-12">
+                        <div class="title-box-d">
+                            <h3 class="title-d">House Retal List</h3>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tableListRent identify">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Guest</th>
+                            <th scope="col">Start Day</th>
+                            <th scope="col">End Day</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Check In</th>
+                        </tr>
+                        </thead>
+                        <tbody id="listRentHouse">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div style="margin-top: 50px" class="col-md-12">
+                <div class="title-box-d">
+                    <h3 id="title-comment" class="title-d">Comments (1)</h3>
+                </div>
+
+
+
+                <div class="box-comments">
+
+
+
+                    <div id="list-comment">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="listPage">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+<!--  comment-->
+
+
+<!--/ Property Single End /-->
+
+<!--/ footer Star /-->
+<section class="section-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="widget-a">
+                    <div class="w-header-a">
+                        <h3 class="w-title-a text-brand">EstateAgency</h3>
+                    </div>
+                    <div class="w-body-a">
+                        <p class="w-text-a color-text-a">
+                            Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo
+                            consequat duis
+                            sed aute irure.
+                        </p>
+                    </div>
+                    <div class="w-footer-a">
+                        <ul class="list-unstyled">
+                            <li class="color-a">
+                                <span class="color-text-a">Phone .</span> contact@example.com
+                            </li>
+                            <li class="color-a">
+                                <span class="color-text-a">Email .</span> +54 356 945234
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 section-md-t3">
+                <div class="widget-a">
+                    <div class="w-header-a">
+                        <h3 class="w-title-a text-brand">The Company</h3>
+                    </div>
+                    <div class="w-body-a">
+                        <div class="w-body-a">
+                            <ul class="list-unstyled">
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Site Map</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
+                                </li>
+                                <li class="item-list-a">
+                                    <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 section-md-t3">
+                <div class="widget-a">
+                    <div class="w-header-a">
+                        <h3 class="w-title-a text-brand">International sites</h3>
+                    </div>
+                    <div class="w-body-a">
+                        <ul class="list-unstyled">
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">Venezuela</a>
+                            </li>
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">China</a>
+                            </li>
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">Hong Kong</a>
+                            </li>
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">Argentina</a>
+                            </li>
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">Singapore</a>
+                            </li>
+                            <li class="item-list-a">
+                                <i class="fa fa-angle-right"></i> <a href="#">Philippines</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="nav-footer">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">About</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Property</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Blog</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="socials-a">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-dribbble" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright-footer">
+                    <p class="copyright color-text-a">
+                        &copy; Copyright
+                        <span class="color-a">EstateAgency</span> All Rights Reserved.
+                    </p>
+                </div>
+                <div class="credits">
+                    <!--
+                      All the links in the footer should remain intact.
+                      You can delete the links only if you purchased the pro version.
+                      Licensing information: https://bootstrapmade.com/license/
+                      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
+                    -->
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--/ Footer End /-->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<div id="preloader"></div>
+
+<!-- JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/popper/popper.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/scrollreveal/scrollreveal.min.js"></script>
+<!-- Contact Form JavaScript File -->
+<script src="contactform/contactform.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
